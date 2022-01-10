@@ -1,0 +1,38 @@
+package selfProgramming;
+
+public class ExerciseArray1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int a[] = {5,7,-9,5,14,2};
+		int first_element,second_element,arr_size = a.length;
+		
+		/*Return if the array size less than two*/
+		
+		if(arr_size < 2)
+		{
+			System.out.println("Array size less than two.");
+			return;
+		}
+		
+		first_element = second_element = Integer.MAX_VALUE;
+		for (int i = 0; i< arr_size; i++)
+		{
+			if (a[i] < first_element)
+			{
+				second_element = first_element;
+				first_element = a[i];
+			}
+			/*Update second if arr[i] is between first and second elements*/
+		
+		else if (a[i] < second_element && a[i] != first_element)
+			second_element = a[i];
+		}
+		if (second_element == Integer.MAX_VALUE)
+			System.out.println("No second smallest element.");
+		else 
+			System.out.println("The smallest element is " + first_element + " and second smallest element is " + second_element);
+	}
+
+}
